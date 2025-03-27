@@ -82,6 +82,9 @@ public class Util {
                     case 2:
                         listarBilhetes();
                         break;
+                    case 3:
+                        removerBilhete();
+                        break;
                     case 4:
                 }
             }
@@ -148,6 +151,21 @@ public class Util {
         }
         showMessageDialog(null, cpf + "Nao encontrado");
         return -1;
+    }
+
+    private void removerBilhete() {
+        int posicao = pesquisarCPF();
+        int resposta;
+
+        if (posicao != -1) {
+            resposta = showConfirmDialog(null, "NÃO VA EMBORA");
+            if (resposta == YES_OPTION) {
+                bilhete[posicao] = bilhete[index - 1];
+                index--;
+            }
+        }
+
+
     }
 }
 
